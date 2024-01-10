@@ -8,13 +8,12 @@ const ListProduct: React.FC = () => {
   const { products, loading, error } = useSelector(
     (state: any) => state.products
   );
-  console.log("products: ", products);
 
   const dispatch: any = useDispatch();
 
-  useEffect(() => {
-    dispatch(getProductListAction());
-  },[])
+  // useEffect(() => {
+  //   dispatch(getProductListAction());
+  // }, []);
   const handleDelete = (productId: string) => {
     // Dispatch delete action by ID
     dispatch(deleteProductAction(productId));
@@ -30,11 +29,12 @@ const ListProduct: React.FC = () => {
       title: "Title",
       dataIndex: "title",
       key: "title",
-      width: 500,
+      width: 300,
     },
     {
       title: "Action",
       key: "action",
+      width: 100,
       render: (_: any, record: any) => (
         <Space size="middle">
           <a onClick={() => handleDelete(record.id)}>Delete</a>
@@ -42,18 +42,31 @@ const ListProduct: React.FC = () => {
       ),
     },
   ];
+
+  if (loading) {
+    return <Spin tip="Loading..." />;
+  }
+
+  if (error) {
+    return <Alert message={`Error: ${error}`} type="error" />;
+  }
   return (
-    <div>
+    <div
+      style={{
+        width: "100%",
+      }}
+    >
       <h2>Product List</h2>
-      {loading && <Spin tip="Loading..." />}
-      {error && <Alert message={`Error: ${error}`} type="error" />}
       {products && (
-        <Table
-          dataSource={products}
-          columns={columns}
-          rowKey="id"
-          loading={loading}
-        />
+        <div>
+          <Table
+            dataSource={products}
+            columns={columns}
+            rowKey="id"
+            loading={loading}
+            scroll={{ y: 450 }}
+          />
+        </div>
       )}
     </div>
   );

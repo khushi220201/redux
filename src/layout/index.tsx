@@ -3,15 +3,20 @@ import Navbar from "./header";
 
 const MainLayout = () => {
   return (
-    <div style={{ height: "100vh" }}>
+    <div
+      style={{
+        height: "100vh",
+      }}
+    >
       <Navbar />
       <div
         style={{
+          height: `calc(100vh - 64px)`,
+          overflowY: "scroll",
+          width: "100vw",
           display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
           justifyContent: "center",
-          height: "90vh",
+          padding: "30px",
         }}
       >
         <Outlet />

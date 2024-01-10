@@ -17,7 +17,6 @@ export const getProductListAction = () => {
       }
 
       const responseData = await response.json();
-      console.log("responseData: ", responseData);
 
       // Dispatch action with successful response data
       dispatch({

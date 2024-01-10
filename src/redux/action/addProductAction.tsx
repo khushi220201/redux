@@ -23,7 +23,7 @@ export const addProductAction = (productData: Products) => {
       // Dispatch action if an error occurs during the fetch or parsing the response
       dispatch({
         type: ActionTypes.ADD_PRODUCT_FAIL,
-        payload: { error: error.message || "Failed to add post" },
+        payload: { error: error.message || "Failed to add product" },
       });
     }
   };

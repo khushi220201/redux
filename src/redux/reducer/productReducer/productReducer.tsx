@@ -14,22 +14,21 @@ const initialState: productstate = {
   error: null,
 };
 
-type PostAction = {
+type ProductAction = {
   type: string;
   payload?: Products;
   error?: string;
 };
 
-export const postReducer = (
+export const productReducer = (
   state: productstate = initialState,
-  action: PostAction
+  action: ProductAction
 ): productstate => {
   switch (action.type) {
     // ADD PRODUCT
     case ActionTypes.ADD_PRODUCT_REQUEST:
       return { ...state, loading: true, error: null };
     case ActionTypes.ADD_PRODUCT_SUCCESS:
-      console.log("Acccc: ", state, action.payload);
       return {
         products: [...state.products, action.payload as Products],
         loading: false,
@@ -40,7 +39,7 @@ export const postReducer = (
         ...state,
         loading: false,
         error: action.error || "An error occurred while adding a product",
-        products: [], // You may want to clear the products array on failure
+        products: [],
       };
 
     // GET PRODUCT
@@ -58,7 +57,7 @@ export const postReducer = (
         ...state,
         loading: false,
         error: action.error || "An error occurred",
-        products: [], // You may want to clear the products array on failure
+        products: [],
       };
 
     //DELETE PRODUCT
@@ -80,7 +79,7 @@ export const postReducer = (
         ...state,
         loading: false,
         error: action.error || "Failed to delete product",
-        products: [], // You may want to clear the products array on failure
+        products: [],
       };
     default:
       return state;

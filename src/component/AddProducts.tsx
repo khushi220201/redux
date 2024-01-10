@@ -67,22 +67,12 @@ const AddProduct: React.FC = () => {
       </Form.Item>
 
       <Form.Item<FieldType>
-        label="image"
+        label="Image url"
         name="image"
-        rules={[{ required: true, message: "Please input your image!" }]}
+        rules={[{ required: true, message: "Please input your image url!" }]}
       >
         <Input type="url" />
       </Form.Item>
-
-      {/* <Form.Item<FieldType>
-        label="image"
-        name="image"
-        rules={[{ required: true, message: "Please input your image!" }]}
-      >
-        <Upload>
-          <Button>Click to Upload</Button>
-        </Upload>
-      </Form.Item> */}
 
       <Form.Item wrapperCol={{ offset: 12, span: 16 }}>
         <Button type="primary" htmlType="submit">

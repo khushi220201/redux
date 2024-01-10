@@ -8,17 +8,14 @@ const { Header } = Layout;
 const Navbar: React.FC = () => (
   <Header
     style={{
-      textAlign: "center",
-      color: "#fff",
-      position: "sticky",
-      top: "0",
       width: "100%",
-      height: "10vh",
-      backgroundColor: "#4096ff",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
     }}
   >
     <Space size={20}>
-      <Link to="/add-post" style={{ color: "white" }}>
+      <Link to="/add-product" style={{ color: "white" }}>
         Add products
       </Link>
       <Link to="/view-products" style={{ color: "white" }}>
