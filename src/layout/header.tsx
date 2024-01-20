@@ -21,6 +21,9 @@ const Navbar: React.FC = () => (
       <Link to="/view-products" style={{ color: "white" }}>
         View products
       </Link>
+      <Link to="/react-quill" style={{ color: "white" }}>
+        React-Quill
+      </Link>
     </Space>
   </Header>
 );
